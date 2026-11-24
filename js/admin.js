@@ -10,7 +10,7 @@ let flashIds = new Set();
 async function start() {
   const { data: { session } } = await db.auth.getSession();
   if (!session) return showLogin();
-  $("#loginBox").hidden = true; $("#signupBox").hidden = true;
+  $("#loginBox").hidden = true;
   $("#who").hidden = false;
   $("#whoEmail").textContent = session.user.email;
   const { data: adminRow } = await db.from("admins").select("user_id").eq("user_id", session.user.id).maybeSingle();
@@ -21,7 +21,7 @@ async function start() {
   subscribe();
 }
 function showLogin() {
-  $("#loginBox").hidden = false; $("#signupBox").hidden = true; $("#who").hidden = true; $("#dash").hidden = true; $("#notAdmin").hidden = true;
+  $("#loginBox").hidden = false; $("#who").hidden = true; $("#dash").hidden = true; $("#notAdmin").hidden = true;
 }
 $("#loginForm").addEventListener("submit", async e => {
   e.preventDefault();
@@ -31,22 +31,6 @@ $("#loginForm").addEventListener("submit", async e => {
   if (error) { $("#loginErr").hidden = false; $("#loginErr").textContent = error.message; return; }
   $("#loginErr").hidden = true; $("#password").value = "";
   start();
-});
-$("#toSignup").onclick = () => { $("#loginBox").hidden = true; $("#signupBox").hidden = false; };
-$("#toLogin").onclick = () => { $("#signupBox").hidden = true; $("#loginBox").hidden = false; };
-$("#signupForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const btn = e.submitter; btn.disabled = true;
-  const { data, error } = await db.auth.signUp({
-    email: $("#suEmail").value, password: $("#suPassword").value,
-    options: { emailRedirectTo: location.origin + location.pathname }
-  });
-  btn.disabled = false;
-  const msg = $("#signupMsg"); msg.hidden = false;
-  if (error) { msg.className = "result error"; msg.textContent = error.message; return; }
-  $("#suPassword").value = "";
-  if (data.session) { $("#signupBox").hidden = true; start(); return; }
-  msg.className = "result"; msg.textContent = t("adm.signup.check");
 });
 $("#signOut").onclick = async () => {
   if (channel) { db.removeChannel(channel); channel = null; }
