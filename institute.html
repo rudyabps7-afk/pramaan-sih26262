@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Institute portal · Pramaan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+</head>
+<body>
+<main class="wrap" style="padding-top:32px;padding-bottom:48px">
+  <h1 data-i18n="inst.title"></h1>
+  <p class="muted" data-i18n="inst.lead"></p>
+
+  <div id="tabs" class="card" style="margin-top:20px">
+    <div class="tabs" role="tablist">
+      <button data-tab="new" aria-selected="true" data-i18n="inst.tab.new"></button>
+      <button data-tab="track" aria-selected="false" data-i18n="inst.tab.track"></button>
+    </div>
+
+    <div data-panel="new">
+      <form id="appForm">
+        <div class="two">
+          <label><span data-i18n="inst.f.inst"></span><select id="instSel" required></select></label>
+          <label><span data-i18n="inst.f.kind"></span><select id="kindSel" required></select></label>
+        </div>
+        <label><span data-i18n="inst.f.details"></span><textarea id="details" maxlength="1000" data-i18n-ph="inst.f.details.ph"></textarea></label>
+        <div><button class="btn" type="submit" data-i18n="inst.submit"></button></div>
+      </form>
+      <div id="appResult" class="result" style="margin-top:16px" hidden></div>
+    </div>
+
+    <div data-panel="track" hidden>
+      <form id="trackForm" class="row" style="align-items:end">
+        <label style="flex:1 1 240px"><span data-i18n="inst.f.appno"></span><input id="appNo" required placeholder="APP-1001-XXXX" autocomplete="off"></label>
+        <button class="btn" type="submit" data-i18n="inst.track.btn"></button>
+      </form>
+      <div id="trackOut" style="margin-top:20px"></div>
+    </div>
+  </div>
+</main>
+<script src="js/institute.js"></script>
+</body>
+</html>

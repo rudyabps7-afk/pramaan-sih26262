@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AICTE admin · Pramaan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+</head>
+<body>
+<main class="wrap" style="padding-top:32px;padding-bottom:48px">
+  <div class="row" style="justify-content:space-between">
+    <h1 style="margin:0" data-i18n="adm.title"></h1>
+    <div class="row" id="who" hidden>
+      <span class="pill ok"><span class="live-dot"></span><span data-i18n="adm.live"></span></span>
+      <span class="muted small" id="whoEmail"></span>
+      <button class="btn secondary small" id="signOut" data-i18n="adm.signout"></button>
+    </div>
+  </div>
+
+  <div id="loginBox" class="card" style="max-width:420px;margin-top:24px" hidden>
+    <h3 data-i18n="adm.signin"></h3>
+    <form id="loginForm">
+      <label><span data-i18n="adm.email"></span><input id="email" type="email" required autocomplete="username"></label>
+      <label><span data-i18n="adm.password"></span><input id="password" type="password" required autocomplete="current-password"></label>
+      <div><button class="btn" type="submit" data-i18n="adm.signin.btn"></button></div>
+      <div id="loginErr" class="result error" hidden></div>
+    </form>
+    <p class="small muted" style="margin:14px 0 0"><button type="button" class="icon-btn" id="toSignup" data-i18n="adm.signup.link"></button></p>
+  </div>
+
+  <div id="signupBox" class="card" style="max-width:420px;margin-top:24px" hidden>
+    <h3 data-i18n="adm.signup"></h3>
+    <p class="small muted" data-i18n="adm.signup.note"></p>
+    <form id="signupForm">
+      <label><span data-i18n="adm.email"></span><input id="suEmail" type="email" required autocomplete="username"></label>
+      <label><span data-i18n="adm.password"></span><input id="suPassword" type="password" required minlength="8" autocomplete="new-password"></label>
+      <div><button class="btn" type="submit" data-i18n="adm.signup.btn"></button></div>
+      <div id="signupMsg" class="result" hidden></div>
+    </form>
+    <p class="small muted" style="margin:14px 0 0"><button type="button" class="icon-btn" id="toLogin" data-i18n="adm.signin.link"></button></p>
+  </div>
+
+  <div id="notAdmin" class="result error" style="margin-top:24px" hidden data-i18n="adm.notadmin"></div>
+
+  <div id="dash" hidden style="margin-top:24px">
+    <div class="kpis" id="kpis"></div>
+    <div id="tabs" class="card">
+      <div class="tabs" role="tablist">
+        <button data-tab="apps" aria-selected="true" data-i18n="adm.tab.apps"></button>
+        <button data-tab="cmp" aria-selected="false" data-i18n="adm.tab.cmp"></button>
+        <button data-tab="alerts" aria-selected="false" data-i18n="adm.tab.alerts"></button>
+        <button data-tab="audit" aria-selected="false" data-i18n="adm.tab.audit"></button>
+      </div>
+      <div data-panel="apps"></div>
+      <div data-panel="cmp" hidden></div>
+      <div data-panel="alerts" hidden></div>
+      <div data-panel="audit" hidden></div>
+    </div>
+  </div>
+</main>
+<script src="js/admin.js"></script>
+</body>
+</html>

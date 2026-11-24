@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pramaan · AICTE approvals and compliance</title>
+<meta name="description" content="SIH26262 prototype: AICTE approval workflow, compliance alerts and public complaints.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/common.js"></script>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="home.eyebrow"></div>
+      <h1 data-i18n="home.title"></h1>
+      <p class="lead" data-i18n="home.lead"></p>
+      <div class="row" style="margin-top:24px">
+        <a class="btn" href="institute.html" data-i18n="home.cta.institute"></a>
+        <a class="btn secondary" href="complaint.html" data-i18n="home.cta.complaint"></a>
+        <a class="btn secondary" href="admin.html" data-i18n="home.cta.admin"></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="home.problem.eyebrow"></div>
+      <h2 data-i18n="home.problem.title"></h2>
+      <div class="grid" style="margin-top:20px">
+        <div class="card"><h3>⏳ <span data-i18n="home.p1.t"></span></h3><p class="muted" data-i18n="home.p1.d"></p></div>
+        <div class="card"><h3>📄 <span data-i18n="home.p2.t"></span></h3><p class="muted" data-i18n="home.p2.d"></p></div>
+        <div class="card"><h3>📢 <span data-i18n="home.p3.t"></span></h3><p class="muted" data-i18n="home.p3.d"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="home.flow.eyebrow"></div>
+      <h2 data-i18n="home.flow.title"></h2>
+      <div class="flow" style="margin-top:20px">
+        <div class="step"><b data-i18n="flow.1.t"></b><span class="muted small" data-i18n="flow.1.d"></span></div>
+        <div class="step"><b data-i18n="flow.2.t"></b><span class="muted small" data-i18n="flow.2.d"></span></div>
+        <div class="step"><b data-i18n="flow.3.t"></b><span class="muted small" data-i18n="flow.3.d"></span></div>
+        <div class="step"><b data-i18n="flow.4.t"></b><span class="muted small" data-i18n="flow.4.d"></span></div>
+        <div class="step"><b data-i18n="flow.5.t"></b><span class="muted small" data-i18n="flow.5.d"></span></div>
+        <div class="step"><b data-i18n="flow.6.t"></b><span class="muted small" data-i18n="flow.6.d"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="home.feat.eyebrow"></div>
+      <h2 data-i18n="home.feat.title"></h2>
+      <div class="grid" style="margin-top:20px">
+        <div class="card"><h3><span class="live-dot"></span><span data-i18n="feat.1.t"></span></h3><p class="muted" data-i18n="feat.1.d"></p></div>
+        <div class="card"><h3>🔔 <span data-i18n="feat.2.t"></span></h3><p class="muted" data-i18n="feat.2.d"></p></div>
+        <div class="card"><h3>🧾 <span data-i18n="feat.3.t"></span></h3><p class="muted" data-i18n="feat.3.d"></p></div>
+        <div class="card"><h3>🗂️ <span data-i18n="feat.4.t"></span></h3><p class="muted" data-i18n="feat.4.d"></p></div>
+        <div class="card"><h3>🌐 <span data-i18n="feat.5.t"></span></h3><p class="muted" data-i18n="feat.5.d"></p></div>
+        <div class="card"><h3>🔒 <span data-i18n="feat.6.t"></span></h3><p class="muted" data-i18n="feat.6.d"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow" data-i18n="home.team.eyebrow"></div>
+      <h2 id="teamName"></h2>
+      <p class="muted" data-i18n="home.tech"></p>
+    </div>
+  </section>
+</main>
+<script>
+  renderChrome("index.html");
+  document.getElementById("teamName").textContent = APP.team;
+</script>
+</body>
+</html>
